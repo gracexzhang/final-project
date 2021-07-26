@@ -24,14 +24,15 @@ interactive(True)
 # stock_ticker = yf.Ticker(stock).history()
 # msft_close = stock_ticker.drop(columns=['Open', 'High',"Low","Volume","Dividends","Stock Splits"])
 # print (msft_close)
-# # plt.plot(msft_close)
+# # # plt.plot(msft_close)
 # def GraphStock(stock):
     
 #     return stock_close 
 
-tickers =['FNF', 'ASML', 'GOOGL', 'CVS']
-# data = yf.download(tickers, group_by="ticker", period='1y')
-# print(data)
+data = yf.download("AAPL", start="2017-01-01", end="2017-04-30")
+data_close = data.drop(columns=['Open', 'High',"Low","Adj Close","Volume"]) 
+print(data_close)
+
 #date = data["date"]
 # close = data ["close"]
 # plt.plot(msft_date, msft_price)
