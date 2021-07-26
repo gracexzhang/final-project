@@ -2,14 +2,14 @@
 # -- Import section --
 from flask import Flask, render_template, request
 from datetime import datetime
-# from model import getImageUrlFrom
+from model import getImageUrlFrom
 import numpy as np
-# import pandas as pd
-# import yfinance as yf
-# import base64
-# from io import BytesIO
-# from matplotlib.figure import Figure
-# import matplotlib.pyplot as plt
+import pandas as pd
+import yfinance as yf
+import base64
+from io import BytesIO
+from matplotlib.figure import Figure
+import matplotlib.pyplot as plt
 
 
 import os
@@ -62,15 +62,16 @@ def pick_stock():
 @app.route('/interactive.html', methods = ["PUSH","GET","POST"])
 def interactive(): 
     fig = Figure()
+    ax = fig.subplots()
     user_stock = request.form["stock"]
     user_initial = request.form["start"]
     user_final = request.form["end"]
     stock_ticker =  yf.download(user_stock, start=user_initial, end=user_final)
     stock_close = stock_ticker.drop(columns=['Open', 'High',"Low","Adj Close","Volume"]) 
-    plt.xlabel('Time (day)')
-    plt.ylabel('Price ($)') 
-    plt.xticks(rotation=90)
+    # plt.xticks(rotation=90)
     ax = fig.subplots()
+    ax.set_xlabel('Time (day)')
+    ax.set_ylabel('Price ($)') 
     ax.plot(stock_close)
     #plt.text(4.6,52, user_response + "Recent Performance", style='italic',bbox={'facecolor':'red', 'alpha':0.5, 'pad':10})
     # Save it to a temporary buffer.
