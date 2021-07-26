@@ -40,6 +40,22 @@ def nosidebar():
 def stocklessons():
     return render_template("stock-lessons.html")
 
+@app.route('/stock-market-game.html')
+def stockmarketgame():
+    return render_template("stock-market-game.html")
+
+@app.route('/online-courses.html')
+def onlinecourses():
+    return render_template("online-courses.html")
+
+@app.route('/bibliography.html')
+def bibliography():
+    return render_template("bibliography.html")
+
+@app.route('/simulation.html')
+def simulation():
+    return render_template("simulation.html")
+
 @app.route('/pick_stock.html')
 def pick_stock():
     return render_template("pick_stock.html", time = datetime.now())
