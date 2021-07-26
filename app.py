@@ -62,16 +62,20 @@ def pick_stock():
 @app.route('/interactive.html', methods = ["PUSH","GET","POST"])
 def interactive(): 
     fig = Figure()
-    user_response = request.form["stock"]
-    stock_ticker =  yf.Ticker(user_response).history()
-    stock_close = stock_ticker.drop(columns=['Open', 'High',"Low","Volume"])
+    user_stock = request.form["stock"]
+    user_initial = request.form["start"]
+    user_final = request.form["end"]
+    stock_ticker =  yf.download(user_stock, start=user_initial, end=user_final)
+    stock_close = stock_ticker.drop(columns=['Open', 'High',"Low","Adj Close","Volume"]) 
+    plt.xlabel('Time (day)')
+    plt.ylabel('Price ($)') 
+    plt.xticks(rotation=90)
     ax = fig.subplots()
     ax.plot(stock_close)
-    plt.xlabel('Time (day)')
-    plt.ylabel('Price ($)')  
+    #plt.text(4.6,52, user_response + "Recent Performance", style='italic',bbox={'facecolor':'red', 'alpha':0.5, 'pad':10})
     # Save it to a temporary buffer.
     buf = BytesIO()
     fig.savefig(buf, format="png")
     data = base64.b64encode(buf.getbuffer()).decode("ascii")
     # Embed the result in the html output.
-    return f"<img src='data:image/png;base64,{data}'/>" , render_template("interactive.html")
+    return f"<img src='data:image/png;base64,{data}'/>" 
