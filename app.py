@@ -4,12 +4,12 @@ from flask import Flask, render_template, request
 from datetime import datetime
 # from model import getImageUrlFrom
 import numpy as np
-import pandas as pd
-import yfinance as yf
-import base64
-from io import BytesIO
-from matplotlib.figure import Figure
-import matplotlib.pyplot as plt
+# import pandas as pd
+# import yfinance as yf
+# import base64
+# from io import BytesIO
+# from matplotlib.figure import Figure
+# import matplotlib.pyplot as plt
 
 
 import os
@@ -35,6 +35,10 @@ def rightsidebar():
 @app.route('/no-sidebar.html')
 def nosidebar():
     return render_template("no-sidebar.html")
+
+@app.route('/stock-lessons.html')
+def stocklessons():
+    return render_template("stock-lessons.html")
 
 @app.route('/pick_stock.html')
 def pick_stock():
