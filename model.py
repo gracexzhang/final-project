@@ -33,9 +33,9 @@ def StockNews():
     results = []
      
     for ar in article:
-        results.append(ar["title"])
-        results.append(ar["url"])
-        results.append(ar["urlToImage"])
+        title = results.append(ar["title"])
+        url = results.append(ar["url"])
+        url_image = results.append(ar["urlToImage"])
          
     for i in range(len(results)):
          
@@ -46,7 +46,7 @@ def StockNews():
     # from win32com.client import Dispatch
     # speak = Dispatch("SAPI.Spvoice")
     # speak.Speak(results)    
-    return results            
+    return [title,url,url_image]            
  
 # Driver Code
 if __name__ == '__main__':
