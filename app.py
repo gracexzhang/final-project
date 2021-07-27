@@ -2,7 +2,7 @@
 # -- Import section --
 from flask import Flask, render_template, request
 from datetime import datetime
-from model import getImageUrlFrom
+from model import StockNews
 import numpy as np
 import pandas as pd
 import yfinance as yf
@@ -24,6 +24,13 @@ app = Flask(__name__)
 @app.route('/index.html')
 def index():
     return render_template("index.html", time = datetime.now())
+
+@app.route('/new')
+def new():
+    article = StockNews()
+    # article = article[0]["source"]["name"]
+    return render_template("new.html", article = article)
+
 
 @app.route('/left-sidebar.html')
 def leftsidebar():
