@@ -4,14 +4,15 @@ from flask import Flask, render_template, request
 from datetime import datetime
 from model import getImageUrlFrom
 import numpy as np
-# import pandas as pd
-# import yfinance as yf
-# import base64
-# from io import BytesIO
-# from matplotlib.figure import Figure
-# import matplotlib.pyplot as plt
-
-
+import pandas as pd
+import yfinance as yf
+import base64
+from io import BytesIO
+from matplotlib.figure import Figure
+import matplotlib.pyplot as plt
+from matplotlib.dates import DateFormatter
+from datetime import date
+from matplot import change_date
 import os
 
 # -- Initialization section --
@@ -56,24 +57,42 @@ def bibliography():
 def simulation():
     return render_template("simulation.html")
 
-@app.route('/pick_stock.html')
+@app.route('/simulation.html')
 def pick_stock():
-    return render_template("pick_stock.html", time = datetime.now())
+    return render_template("simulation.html", time = datetime.now())
 @app.route('/interactive.html', methods = ["PUSH","GET","POST"])
 def interactive(): 
     fig = Figure()
-    ax = fig.subplots()
     user_stock = request.form["stock"]
     user_initial = request.form["start"]
     user_final = request.form["end"]
     stock_ticker =  yf.download(user_stock, start=user_initial, end=user_final)
     stock_close = stock_ticker.drop(columns=['Open', 'High',"Low","Adj Close","Volume"]) 
     # plt.xticks(rotation=90)
+    fig.suptitle(user_stock + "'s Performance", fontweight ="bold")
     ax = fig.subplots()
-    ax.set_xlabel('Time (day)')
     ax.set_ylabel('Price ($)') 
+    
+    new = change_date(user_initial)
+    d0 = date(new[0],new[1],new[2])
+    old = change_date(user_final)
+    d1 = date(old[0],old[1],old[2])
+    delta = d1 - d0
+    if delta.days < 365:
+        date_short_form = DateFormatter("%d-%m")
+        ax.xaxis.set_major_formatter(date_short_form)
+        ax.set_xlabel('Time (Day-Month)')
+    elif delta.days > 18365:
+        date_long_form = DateFormatter("%Y")
+        ax.set_xlabel('Time (Year)')
+        ax.xaxis.set_major_formatter(date_long_form)
+    else: 
+        date_medium_form = DateFormatter("%m-%Y")
+        ax.set_xlabel('Time (Month-Year)')
+        ax.xaxis.set_major_formatter(date_medium_form)
+    ax.autoscale_view()
     ax.plot(stock_close)
-    #plt.text(4.6,52, user_response + "Recent Performance", style='italic',bbox={'facecolor':'red', 'alpha':0.5, 'pad':10})
+    # ax.text(4.6,52, user_response + "Recent Performance", style='italic',bbox={'facecolor':'red', 'alpha':0.5, 'pad':10})
     # Save it to a temporary buffer.
     buf = BytesIO()
     fig.savefig(buf, format="png")

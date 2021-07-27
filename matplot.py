@@ -9,8 +9,22 @@ from matplotlib import interactive
 interactive(True)
 # data = pdr.get_data_yahoo("SPY", start="2017-01-01", end="2017-04-30") 
 
+"2017-01-01"
+def change_date(date):
+    year = int(date[:4])
+    month = int( date [5:7])
+    day = int( date[8:10])
+    return [year,month, day]
 
 
+print (change_date("2021-07-01"))
+
+# user_initial_new = user_initial.replace('-', '') 
+    # user_initial_new_new = str(user_initial_new)[:4] + "," + str(user_initial_new)[4:]
+    # user_initial_new_new_new = user_initial_new_new[:7] + "," + user_initial_new_new[7:]
+    # user_final_new = user_final.replace('-', '') 
+    # user_final_new_new = str(user_final_new)[:4] + "," + str(user_final_new)[4:]
+    # user_final_new_new_new = user_final_new_new[:7] + "," + user_final_new_new[7:]
 # data = yf.download("AAPL", start="2017-01-01", end="2017-05-30")
 
 
@@ -27,11 +41,11 @@ interactive(True)
 # # # plt.plot(msft_close)
 # def GraphStock(stock):
     
-#     return stock_close 
+# #     return stock_close 
 
-data = yf.download("AAPL", start="2017-01-01", end="2017-04-30")
-data_close = data.drop(columns=['Open', 'High',"Low","Adj Close","Volume"]) 
-print(data_close)
+# data = yf.download("AAPL", start="2017-01-01", end="2017-04-30")
+# data_close = data.drop(columns=['Open', 'High',"Low","Adj Close","Volume"]) 
+# print(data_close)
 
 #date = data["date"]
 # close = data ["close"]
