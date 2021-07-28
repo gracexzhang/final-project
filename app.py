@@ -28,11 +28,11 @@ def index():
 @app.route('/new.html')
 def new():
     article = StockNews()
-    article_display = article[0]
-    article_url = article[1]
-    article_url_image = article[2]
+    # article_display = article[0]
+    # article_url = article[1]
+    # article_url_image = article[2]
     # article = article[0]["source"]["name"]
-    return render_template("new.html", article_display = article_display,article_url = article_url,article_url_image = article_url_image )
+    return render_template("new.html", article = article)
 
 
 @app.route('/left-sidebar.html')
