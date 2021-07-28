@@ -48,10 +48,10 @@ def StockNews():
     # from win32com.client import Dispatch
     # speak = Dispatch("SAPI.Spvoice")
     # speak.Speak(results)    
-    return results            
+    return results           
  
 # Driver Code
-if __name__ == '__main__':
+# if __name__ == '__main__':
      
     # function call
-  StockNews()
+print(StockNews())
