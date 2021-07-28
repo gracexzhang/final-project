@@ -235,6 +235,11 @@ input, select, textarea {
 		text-align: right;
 	}
 
+
+.smallline {
+    line-height: 0.5;
+}
+
 /* Loader */
 
 	@-moz-keyframes spinner-show {

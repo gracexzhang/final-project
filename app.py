@@ -25,7 +25,7 @@ app = Flask(__name__)
 def index():
     return render_template("index.html", time = datetime.now())
 
-@app.route('/new')
+@app.route('/new.html')
 def new():
     article = StockNews()
     # article = article[0]["source"]["name"]

@@ -1,14 +1,141 @@
 <head>
 
 
-</head>
+    <!-- </head>
 
 <body>
 <ul>
           {% for item in article %}
-            <li>{{item}}</li>
+          <div class="row">
+			<div class="col-8 col-12-medium">
+            <li>{{item["title"]}}
+            <a href = "{{item["url"]}}" > <img src = "{{item["urlToImage"]}}"> </a>  
+            </li>
           {% endfor %}
         </ul>
 {{article}}
 
+</body> -->
+
+
+
+
+    <!DOCTYPE HTML>
+    <!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+    <html>
+
+    <head>
+        <title>EasyStocks: Current News</title>
+        <!-- This was a random name feel free to change it-->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="/static/css_copy/main.css" />
+        <noscript>
+            <link rel="stylesheet" href="/static/css_copy/noscript.css" /></noscript>
+    </head>
+
+<body class="is-preload landing">
+    <div id="page-wrapper">
+
+                        
+    
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="index.html">EasyStocks</a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li>
+								<a href="#">Learn More</a>
+								<ul>
+									<li><a href="left-sidebar.html">Interact with Stocks</a></li>
+									<li><a href="right-sidebar.html">Current News</a></li>
+									<li><a href="no-sidebar.html">Investing Tips</a></li>
+									<li>
+										<a href="#">Resources</a>
+										<ul>
+											<li><a href="stock-lessons.html">Stock Lessons</a></li>
+											<li><a href="stock-market-game.html">Stock Market Game</a></li>
+											<li><a href="online-courses.html">Online Courses</a></li>
+											<li><a href="bibliography.html"> Bibliography</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><a href="simulation.html">Simulation</a></li>
+							<li><a href="#" class="button primary">Sign Up</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<h2>Current News</h2>
+							<p>The Most Recent News Surrounding Stocks, Curated to Your Portfolio</p>
+                        </header>
+<!--                         
+
+                                                <a href="#">Resources</a>
+                                                <ul>
+                                                    <li><a href="stock-lessons.html">Stock Lessons</a></li>
+                                                    <li><a href="stock-market-game.html">Stock Market Game</a></li>
+                                                    <li><a href="online-courses.html">Online Courses</a></li>
+                                                    <li><a href="bibliography.html"> Bibliography</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="simulation.html">Simulation</a></li>
+                                    <li><a href="#" class="button primary">Sign Up</a></li>
+                                </ul>
+                            </nav> --> 
+
+                            <!-- One -->
+                            <!-- <section id="one" class="spotlight style1 bottom"> -->
+                                <!-- <span class="image fit main"><img src="https://png.pngtree.com/thumb_back/fw800/background/20191116/pngtree-stock-market-data-index-background-image_322384.jpg" alt="" /></span> -->
+                                <div class="content">
+                                    <div class="container">
+                                        <div class="row">
+                                            {% for item in article %}
+                                            <div class="col-6">
+
+                                                <a href="{{item["url"]}}"> <img src="{{item["urlToImage"]}}"
+                                                        width="200px" height="200px" class="center"> </a>
+                                                <style>
+                                                    p {
+                                                        text-align: center;
+                                                    }
+                                                </style>
+                                                <li>{{item["title"]}}
+                                                    </p>
+                                                </li>
+                                            </div>
+                                            {% endfor %}
+
+
+                                        </div>
+                                        <div class="col-8 col-12-medium">
+                                            <!-- <p> Stocks, or shares of a company, represent ownership equity in the firm, which give shareholders voting rights as well as a residual claim on corporate earnings in the form of capital gains and dividends. <br> Stockholders generally buy or sell stocks depending on the expectations of particular corporate earnings/profits. <br> To earn money from stocks, stockholders would sell their shares at a higher price than originally purchased. They could also profit through dividends, or quarterly payments distributed on a per-share basis out of a company’s earnings.
+</p> -->
+                                        </div>
+                                    </div>
+
+                                    <!-- Scripts -->
+                                    <script src="static/js/jquery.min.js"></script>
+                                    <script src="static/js/jquery.scrolly.min.js"></script>
+                                    <script src="static/js/jquery.dropotron.min.js"></script>
+                                    <script src="static/js/jquery.scrollex.min.js"></script>
+                                    <script src="static/js/browser.min.js"></script>
+                                    <script src="static/js/breakpoints.min.js"></script>
+                                    <script src="static/js/util.js"></script>
+                                    <script src="static/js/main.js"></script>
+
 </body>
+
+</html>

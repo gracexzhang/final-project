@@ -33,9 +33,11 @@ def StockNews():
     results = []
      
     for ar in article:
-        results.append(ar["title"])
-        results.append(ar["url"])
-        results.append(ar["urlToImage"])
+        temp_article_data = {"title": ar["title"],"url": ar["url"], "urlToImage": ar["urlToImage"]}
+        # results.append(ar["title"])
+        # results.append(ar["url"])
+        # results.append(ar["urlToImage"])
+        results.append(temp_article_data)
          
     for i in range(len(results)):
          
