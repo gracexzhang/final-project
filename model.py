@@ -49,7 +49,7 @@ def StockNews():
     return [title,url,url_image]            
  
 # Driver Code
-if __name__ == '__main__':
+# if __name__ == '__main__':
      
     # function call
-  StockNews()
+print(StockNews())
