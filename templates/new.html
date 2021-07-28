@@ -67,7 +67,7 @@
                         </ul>
                     </li>
                     <li><a href="simulation.html">Simulation</a></li>
-                    <li><a href="#" class="button primary">Sign Up</a></li>
+                    <!-- <li><a href="#" class="button primary">Sign Up</a></li> -->
                 </ul>
             </nav>
         </header>
@@ -104,9 +104,9 @@
                         <div class="row">
                             {% for item in article %}
                             <div class="col-6">
-
-                                <a href="{{item["url"]}}"> <img src="{{item["urlToImage"]}}" width="200px"
-                                        height="200px" class="center"> </a>
+                                <br>
+                                <a href="{{item["url"]}}"> <img src="{{item["urlToImage"]}}" width=100%;
+                                        height=305px; object-fit = cover> </a>
                                 <style>
                                     p {
                                         text-align: center;
@@ -126,6 +126,21 @@
                         </div>
                     </div>
 
+                    			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+                        <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</footer>
+
+		</div>
                     <!-- Scripts -->
                     <script src="static/js/jquery.min.js"></script>
                     <script src="static/js/jquery.scrolly.min.js"></script>
