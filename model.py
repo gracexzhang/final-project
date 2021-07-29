@@ -19,12 +19,14 @@ def StockNews():
       "sortBy": "stocks",
       "apiKey": "61006aaf53a8410fa9ae119f41b4eb55"
     }
-    main_url = "https://newsapi.org/v2/everything?q=stocks&from=2021-06-27&sortBy=publishedAt&apiKey=61006aaf53a8410fa9ae119f41b4eb55"
+    main_url = "https://newsapi.org/v2/everything?q=stocks&from=2021-07-29&sortBy=publishedAt&apiKey=61006aaf53a8410fa9ae119f41b4eb55"
  
     # fetching data in json format
     res = requests.get(main_url, params=query_params)
     open_bbc_page = res.json()
  
+    # print("this is the print statement")
+    print(open_bbc_page)
     # getting all articles in a string article
     article = open_bbc_page["articles"]
 
