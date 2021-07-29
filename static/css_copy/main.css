@@ -33,6 +33,13 @@ body {
 	line-height: 1;
 }
 
+#news_image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+
+}
+
 ol, ul {
 	list-style: none;
 }
